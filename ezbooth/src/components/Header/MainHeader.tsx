@@ -14,7 +14,7 @@ const MainHeader = () => {
 };
 
 const Wrapper = styled.div`
-  padding: 2rem 2rem 0 2rem;
+  padding: 0 0 3rem 0;
   display: flex;
   justify-content: space-between;
 `;

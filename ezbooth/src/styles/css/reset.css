@@ -145,3 +145,7 @@ button {
 * {
   box-sizing: border-box;
 }
+
+body {
+  padding: 2rem;
+}
