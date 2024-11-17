@@ -3,11 +3,16 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from 'assets/logos/mainLogo.svg';
 
-const MainHeader = () => {
+interface MainHeaderInterface {
+  title?: string;
+}
+
+const MainHeader = ({ title }: MainHeaderInterface) => {
   return (
     <Wrapper>
       <IconWrapper to={'/'}>
         <MainLogo />
+        {title}
       </IconWrapper>
     </Wrapper>
   );
