@@ -1,10 +1,10 @@
 import React from 'react';
 import MainTitle from 'components/Home/MainTitle';
 import styled from 'styled-components';
-import TitleLogoIMG from 'assets/componentLogos/TitleLogo.png';
 import ButtonComponent from 'components/modules/ButtonComponent';
-import { boothStyleInterface, selectInfoType } from 'types/selectBoothType';
+import { boothStyleInterface,  } from 'types/selectBoothType';
 import Btn from 'components/modules/Btn';
+import { Link } from 'react-router-dom';
 
 interface SelectBoothInterface {
   infoSetter: React.Dispatch<React.SetStateAction<boothStyleInterface>>,
@@ -19,35 +19,26 @@ const SelectBooth = ({ infoSetter, boothStyle }: SelectBoothInterface) => {
           <MainTitle>원하는 부스 스타일을 선택 해주세요!</MainTitle>
         </ContentArea>
         <ContentArea>
-          <ButtonArea onClick={() => infoSetter({...boothStyle, style:'National_Open'})}>
+          <ButtonArea onClick={() => infoSetter({...boothStyle, style:'national_open'})}>
             <ButtonComponent
               description='1. National Booth-Open'
-              checked={boothStyle.style === 'National_Open'}
+              checked={boothStyle.style === 'national_open'}
             />
           </ButtonArea>
-          <ButtonArea onClick={() => infoSetter({...boothStyle, style:'National_Partition'})}>
+          <ButtonArea onClick={() => infoSetter({...boothStyle, style:'national_partition'})}>
             <ButtonComponent
               description='2. National Booth-Partition'
-              checked={boothStyle.style === 'National_Partition'}
+              checked={boothStyle.style === 'national_partition'}
             />
           </ButtonArea>
-          <ButtonArea onClick={() => infoSetter({...boothStyle, style:'Custom'})}>
+          <ButtonArea onClick={() => infoSetter({...boothStyle, style:'custom'})}>
             <ButtonComponent
               description='3. CustomBooth'
-              checked={boothStyle.style === 'Custom'}
+              checked={boothStyle.style === 'custom'}
             />
           </ButtonArea>
         </ContentArea>
       </ContentWrapper>
-      <FooterWrapper>
-        {/* <Link to='/d'> */}
-          <Btn>
-            Back
-          </Btn>
-        {/* </Link> */}
-        
-        <Btn checked={boothStyle ? true : false}>Next</Btn>
-      </FooterWrapper>
     </Wrapper>
   )
 };
@@ -85,13 +76,13 @@ const ButtonArea = styled.div`
   align-items: center;
 `;
 
-const FooterWrapper = styled.div`
-  margin-top: 2rem;
-  width: 100%;
-  height: 6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
+// const FooterWrapper = styled.div`
+//   margin-top: 2rem;
+//   width: 100%;
+//   height: 6rem;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// `
 
 export default SelectBooth;

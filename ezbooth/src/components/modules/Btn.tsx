@@ -4,9 +4,10 @@ import { mainBlue, btnBase } from 'styles/color';
 
 interface BtnInterface {
   /** 버튼 컴포넌트의 텍스트 */
-  children: string,
+  children: string;
   /** 선택 사항에 따른 UI 변화를 구고자 하는 버튼 생성시 선택여부(boolean)을 전달 */
-  checked?: boolean
+  checked?: boolean;
+  onClickFn?:  React.MouseEventHandler<HTMLButtonElement>;
 }
 
 /**
@@ -15,14 +16,14 @@ interface BtnInterface {
  * @param {boolean} props.checked - 선택 사항에 따른 UI 변화를 구고자 하는 버튼 생성시 선택여부(boolean)을 전달
  * @returns 
  */
-const Btn = ({ children, checked }: BtnInterface) => {
+const Btn = ({ children, checked, onClickFn }: BtnInterface) => {
   return (
     checked === undefined ? 
-      <Wrapper>
+      <Wrapper onClick={onClickFn}>
         {children}
       </Wrapper>
       :
-      <CheckedWrapper checked={checked}>
+      <CheckedWrapper checked={checked} onClick={onClickFn}>
         {children}
       </CheckedWrapper>
   )

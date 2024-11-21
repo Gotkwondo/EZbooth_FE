@@ -3,15 +3,14 @@ import styled from 'styled-components';
 import MainTitle from './MainTitle';
 import TitleLogoIMG from 'assets/componentLogos/TitleLogo.png';
 import ButtonComponent from 'components/modules/ButtonComponent';
-import Btn from 'components/modules/Btn';
-// import { Link } from 'react-router-dom';
+import { selectServiceInterface } from 'types/selectBoothType';
 
-const HomeContent = () => {
-  const [selectType, setSelectType] = useState({
-    manage: false,
-    create: false
-  });
+interface HomeContentInterface {
+  infoSetter: React.Dispatch<React.SetStateAction<selectServiceInterface>>;
+  info: selectServiceInterface;
+}
 
+const HomeContent = ({infoSetter, info}: HomeContentInterface) => {
   return (
     <Wrapper>
       <ContentWrapper>
@@ -19,38 +18,29 @@ const HomeContent = () => {
           <MainTitle imgSrc={TitleLogoIMG}>의 기능을 무료 체험 해보세요!</MainTitle>
         </ContentArea>
         <ContentArea>
-          <ButtonArea onClick={() => setSelectType({manage: true, create: false})}>
+          <ButtonArea onClick={() => infoSetter({manage: true, create: false})}>
             <ButtonComponent
               title='프로젝트 관리하기'
               description='문제를 실시간으로 피드백하고 일정을 관리해보세요!'
-              checked={selectType.manage}
+              checked={info.manage}
             />
           </ButtonArea>
-          <ButtonArea onClick={() => setSelectType({manage: false, create: true})}>
+          <ButtonArea onClick={() => infoSetter({manage: false, create: true})}>
             <ButtonComponent
               title='10초만에 부스 기획 설계 제안서 만들어보기'
               description='공간에 따른 부스 디자인부터 모델링과 제안서까지 빠르게 만들어보세요!'
-              checked={selectType.create}
+              checked={info.create}
             />
           </ButtonArea>
         </ContentArea>
       </ContentWrapper>
-      <FooterWrapper>
-        {/* <Link to='/d'> */}
-          <Btn>
-            Back
-          </Btn>
-        {/* </Link> */}
-        
-        <Btn checked={selectType.create || selectType.manage}>Next</Btn>
-      </FooterWrapper>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   width: 100%;
-  height: calc(100dvh - 10.5rem);
+  height: calc(100dvh - 18.5rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,14 +69,5 @@ const ButtonArea = styled.div`
   padding: 0.8rem;
   border-radius: 20px;
 `;
-
-const FooterWrapper = styled.div`
-  margin-top: 2rem;
-  width: 100%;
-  height: 6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
 
 export default HomeContent;
