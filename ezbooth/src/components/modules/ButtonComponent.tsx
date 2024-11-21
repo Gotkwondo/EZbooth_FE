@@ -22,7 +22,7 @@ interface ButtonComponentInterface {
  */
 const ButtonComponent = ({ title, description, checked }: ButtonComponentInterface) => {
   return (
-    <Wrapper checked={checked}>
+    <Wrapper checked={checked} title={title}>
       <Title>
         {title}
       </Title>
@@ -33,17 +33,17 @@ const ButtonComponent = ({ title, description, checked }: ButtonComponentInterfa
   );
 };
 
-const Wrapper = styled.button<{checked: boolean}>`
+const Wrapper = styled.button<{checked: boolean, title?: string}>`
   background-color: ${({checked}) => checked ? mainBlue : btnBase};
   padding: 0.8rem;
-  border-radius: 20px;
-  width: 100%;
-  height: 100%;
+  border-radius: 25px;
+  width: ${({title}) => title ? 100 : 90}%;
+  height: ${({title}) => title ? 100 : 50}%;
   color: ${({checked}) => checked ? 'white' : mainBlue};
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: ${({title}) => title ? 'space-evenly' : 'center'};
   align-items: center;
   &:hover {
     background-color: ${mainBlue};

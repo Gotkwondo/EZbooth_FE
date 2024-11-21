@@ -5,10 +5,10 @@ import HomeContent from 'components/Home/HomeContent';
 const Home = () => {
 
   return (
-    <div className='Home'>
+    <>
       <MainHeader />
       <HomeContent />
-    </div>
+    </>
   )
 };
 

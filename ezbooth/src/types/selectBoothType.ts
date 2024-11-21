@@ -1,9 +1,9 @@
 export interface boothStyleInterface {
-  boothStyle: 'National_Open' | 'National_Partition' | 'Custom' | undefined,
+  style: 'National_Open' | 'National_Partition' | 'Custom' | undefined,
+  clear: boolean,
 }
 
-export interface selectInfoType {
-  boothStyle: boothStyleInterface | undefined,
+export interface selectInfoType{
   country: string | undefined,
   convention: {
     name: "Kintex, Goyang" | "Makuhari Messe, Chiba" | undefined,
