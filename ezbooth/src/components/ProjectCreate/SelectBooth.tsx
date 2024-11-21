@@ -76,13 +76,4 @@ const ButtonArea = styled.div`
   align-items: center;
 `;
 
-// const FooterWrapper = styled.div`
-//   margin-top: 2rem;
-//   width: 100%;
-//   height: 6rem;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// `
-
 export default SelectBooth;

@@ -6,7 +6,7 @@ import { boothStyleInterface } from 'types/selectBoothType';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import Btn from 'components/modules/Btn';
 
-const SelectCountry = () => {
+const SelectCountryInfo = () => {
   // const [searchParams, setSearchParams] = useSearchParams();
   const [country, setCountry] = useState<string | undefined>(undefined);
 
@@ -44,4 +44,4 @@ const FooterWrapper = styled.div`
   align-items: center;
 `
 
-export default SelectCountry;
+export default SelectCountryInfo;

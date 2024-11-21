@@ -3,7 +3,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Home from 'pages/Home';
 import ProjectCreate from 'pages/SelectBoothStyle';
-import SelectCountry from 'pages/SelectCountry';
+import SelectCountry from 'pages/SelectCountryInfo';
 
 function App() {
   return (
