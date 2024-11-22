@@ -1,24 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MainHeader from 'components/Header/MainHeader';
-import SelectBooth from 'components/ProjectCreate/SelectBooth';
 import styled from 'styled-components';
-import { boothStyleInterface, selectCountryInterface, selectHallInterface } from 'types/selectBoothType';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+// import { boothStyleInterface, selectCountryInterface, selectHallInterface } from 'types/selectBoothType';
+import { Link } from 'react-router-dom';
 import Btn from 'components/modules/Btn';
 import SelectCountry from 'components/ProjectCountry/SelectCountry';
 import { useBoothStore } from 'zustand/createBooth';
 
 const SelectCountryInfo = () => {
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const countryData = [
-  //   { value: 'kintex', label: 'Kintex - Goyang, Korea' },
-  //   { value: 'mikuhari', label: 'Mikuhari - Chiba, Japan' }
-  // ];
-  // const hallData = [
-  //   { value: 'hall6', label: 'Hall 6' }
-  // ];
-  // const [country, setCountry] = useState<selectCountryInterface>(countryData[0]);
-  // const [hall, setHall] = useState<selectHallInterface>(hallData[0]);
   const { country, booth } = useBoothStore();
   
   return (
@@ -33,6 +22,7 @@ const SelectCountryInfo = () => {
             Back
           </Btn>
         </Link>
+        {/* 이 버튼이 Next 버튼인데 하나의 페이지에서 zustand setter를 사용해 하나의 페이지로 구성하도록 리팩진행 예정 */}
         <Link to={`/country?type=create`}>
           <Btn checked={country && booth ? true : false}>Next</Btn>
         </Link>

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import MainTitle from 'components/Home/MainTitle';
 import { useBoothStore } from 'zustand/createBooth';
 import SelectComponent from 'components/modules/SelectComponent';
-import Select from 'react-select';
 import countryImg from 'assets/imgs/countryImg.png';
 
 const SelectCountry = () => {
@@ -15,8 +14,8 @@ const SelectCountry = () => {
     { value: 'hall6', label: 'Hall 6' }
   ];
 
-  const { country, booth, setCountry, setBooth } = useBoothStore();
-  console.log(country, booth)
+  const { setCountry, setBooth } = useBoothStore();
+
   return (
     <Wrapper>
       <ContentWrapper>
@@ -24,7 +23,6 @@ const SelectCountry = () => {
           <MainTitle>원하는 부스 스타일을 선택 해주세요!</MainTitle>
         </TitleArea>
         <ContentArea>
-          {/* <SelectComponent data={countryData} setterFn={setCountry}/> */}
           <ImgWrapper src={countryImg} />
           <SelectInputArea>
             <SelectComponent
@@ -35,9 +33,6 @@ const SelectCountry = () => {
               data={hallData}
               setterFn={setBooth}
             />
-            
-          </SelectInputArea>
-          <SelectInputArea>
             
           </SelectInputArea>
         </ContentArea>

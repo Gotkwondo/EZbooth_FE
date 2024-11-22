@@ -3,11 +3,10 @@ import MainHeader from 'components/Header/MainHeader';
 import SelectBooth from 'components/ProjectCreate/SelectBooth';
 import styled from 'styled-components';
 import { boothStyleInterface } from 'types/selectBoothType';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Btn from 'components/modules/Btn';
 
 const SelectBoothStyle = () => {
-  // const [searchParams, setSearchParams] = useSearchParams();
   const [boothStyle, setBoothStyle] = useState<boothStyleInterface>({
     style: undefined,
     clear: false
