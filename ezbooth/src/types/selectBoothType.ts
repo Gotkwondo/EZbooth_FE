@@ -17,3 +17,12 @@ export interface selectInfoType{
   booth: number | undefined,
 }
 
+export interface selectCountryInterface {
+  value: string,
+  label: string,
+}
+
+export interface selectHallInterface {
+  value: string,
+  label: string,
+}

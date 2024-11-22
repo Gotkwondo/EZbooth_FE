@@ -2,19 +2,30 @@ import React, { useState } from 'react';
 import MainHeader from 'components/Header/MainHeader';
 import SelectBooth from 'components/ProjectCreate/SelectBooth';
 import styled from 'styled-components';
-import { boothStyleInterface } from 'types/selectBoothType';
+import { boothStyleInterface, selectCountryInterface, selectHallInterface } from 'types/selectBoothType';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import Btn from 'components/modules/Btn';
+import SelectCountry from 'components/ProjectCountry/SelectCountry';
+import { useBoothStore } from 'zustand/createBooth';
 
 const SelectCountryInfo = () => {
   // const [searchParams, setSearchParams] = useSearchParams();
-  const [country, setCountry] = useState<string | undefined>(undefined);
-
+  // const countryData = [
+  //   { value: 'kintex', label: 'Kintex - Goyang, Korea' },
+  //   { value: 'mikuhari', label: 'Mikuhari - Chiba, Japan' }
+  // ];
+  // const hallData = [
+  //   { value: 'hall6', label: 'Hall 6' }
+  // ];
+  // const [country, setCountry] = useState<selectCountryInterface>(countryData[0]);
+  // const [hall, setHall] = useState<selectHallInterface>(hallData[0]);
+  const { country, booth } = useBoothStore();
+  
   return (
     <>
       <MainHeader title='Design' />
       <ContentsWrapper>
-        {/* <SelectBooth infoSetter={setCountry} boothStyle={country} /> */}
+        <SelectCountry />
       </ContentsWrapper>
       <FooterWrapper>
         <Link to='/'>
@@ -23,7 +34,7 @@ const SelectCountryInfo = () => {
           </Btn>
         </Link>
         <Link to={`/country?type=create`}>
-          <Btn checked={country ? true : false}>Next</Btn>
+          <Btn checked={country && booth ? true : false}>Next</Btn>
         </Link>
       </FooterWrapper>
     </>
